@@ -229,8 +229,4 @@ const handleDelete=(id)=>{
     )
 };
 
-
-
-
-
 export default CRUD;

@@ -8,17 +8,14 @@ namespace webapi.Controllers;
 [ApiController]
 public class EmployeeController : ControllerBase
 {
-    
-
     private readonly ILogger<EmployeeController> _logger;
     private readonly ApplicationDbContext _context;
-
     public EmployeeController(ILogger<EmployeeController> logger,ApplicationDbContext context)
     {
         _logger = logger;
         _context = context;
     }
-
+    
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Employee>>> GetEmployees()
     {
@@ -53,6 +50,8 @@ public class EmployeeController : ControllerBase
 
         return CreatedAtAction(nameof(GetEmployee),new {id=employee.Id},employee);
     }
+
+
     [HttpPut("{id:int}")]
     public async Task<ActionResult> PutEmployee(int id,Employee employee)
     {
@@ -71,6 +70,7 @@ public class EmployeeController : ControllerBase
         }
         return Ok();
     }
+    
     [HttpDelete("{id:int}")]
     public async Task<ActionResult> DeleteEmployee(int id)
     {
